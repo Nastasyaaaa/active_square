@@ -1,0 +1,16 @@
+body{
+	margin: 0;
+	padding: 0;
+}
+.square, .square-wrapper {
+	display: inline-block;
+	margin: 10px;
+	width: 200px;
+	height: 200px;
+}
+
+.square{
+	background-color: green;
+	position: relative;
+	cursor: pointer;	
+}
