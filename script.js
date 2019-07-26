@@ -23,16 +23,16 @@ function getHandler(){
 		onSquareClick : function(event)
 		{
 			var square = event.target;
-
-			if(!this.isSquare(square)){
+			
+			if(!squareManager.isSquare(square)){
 				return;
 			}
 
 			if(activeSquare && activeSquare != square){
-				this.makeUnActive(activeSquare);
+				squareManager.makeUnActive(activeSquare);
 			}
 
-			this.makeActive(square);
+			squareManager.makeActive(square);
 		}
 	}
 
