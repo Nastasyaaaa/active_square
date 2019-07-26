@@ -1,4 +1,4 @@
-function getSquareManager(){
+function getHandler(){
 
 	var activeSquare;
 
@@ -36,10 +36,10 @@ function getSquareManager(){
 		}
 	}
 
-	return squareManager;
+	return squareManager.onSquareClick;
 }
 
 var list = document.getElementById('list');
-var squareManager = getSquareManager();
+var handler = getHandler();
 
-list.addEventListener('click', squareManager.onSquareClick);
+list.addEventListener('click', handler);
