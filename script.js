@@ -24,15 +24,15 @@ function getHandler(){
 		{
 			var square = event.target;
 
-			if(!squareManager.isSquare(square)){
+			if(!this.isSquare(square)){
 				return;
 			}
 
 			if(activeSquare && activeSquare != square){
-				squareManager.makeUnActive(activeSquare);
+				this.makeUnActive(activeSquare);
 			}
 
-			squareManager.makeActive(square);
+			this.makeActive(square);
 		}
 	}
 
