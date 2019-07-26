@@ -1,34 +1,45 @@
-function makeActive(square)
-{
-	square.classList.add('active');
-}
+function getSquareManager(){
 
-function makeUnActive(square)
-{
-	square.classList.remove('active');
-}
+	var activeSquare;
 
-function isSquare(element)
-{
-	return element.classList.contains('square');
-}
+	var squareManager = {
 
-function onClick(event){
-	var square = event.target;
+		makeActive : function(square)
+		{
+			square.classList.add('active');
+			activeSquare = square;
+		},
 
-	if(!isSquare(square)){
-		return;
+		makeUnActive : function(square)
+		{
+			square.classList.remove('active');
+		},
+
+		isSquare : function(element)
+		{
+			return element.classList.contains('square');
+		}, 
+
+		onSquareClick : function(event)
+		{
+			var square = event.target;
+
+			if(!squareManager.isSquare(square)){
+				return;
+			}
+
+			if(activeSquare && activeSquare != square){
+				squareManager.makeUnActive(activeSquare);
+			}
+
+			squareManager.makeActive(square);
+		}
 	}
 
-	if(activeSquare && activeSquare != square){
-		makeUnActive(activeSquare);
-	}
-
-	makeActive(square);
-	activeSquare = square;
+	return squareManager;
 }
 
 var list = document.getElementById('list');
-var activeSquare;
+var squareManager = getSquareManager();
 
-list.addEventListener('click', onClick);
+list.addEventListener('click', squareManager.onSquareClick);
